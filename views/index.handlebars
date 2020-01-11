@@ -1,40 +1,43 @@
 <div class="container">
-    <div class="jumbotron">
-  <h1 class="display-4">Burgers</h1>
-  <p class="lead">Order your burger </p>
-  <p class="lead">Eat your burger </p>
-  <hr class="my-4">
-</div>
-
-<h2>Burgers Ordered</h2>
-
-<ul>
-  {{#each burger}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers Eaten</h2>
-
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Order your burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">BUrger:</label>
-    <input type="text" class= "form-control" id="burger" name="burger">
+  <div class="jumbotron">
+    <h1 class="display-4">Burgers</h1>
+    <p class="lead">Order your burger </p>
+    <p class="lead">Eat your burger </p>
+    <hr class="my-4">
   </div>
 
-  <button type="submit">Add Veggie</button>
-</form>
+  <h2>Burgers Ordered</h2>
+
+  <ul>
+    {{#each dbResultsBurger}}
+    {{#unless devoured}}
+    <li>
+      {{burger_name}} <button class="devour" data-devour ="{{true}}">Devoured</button>
+    </li>
+
+    {{/unless}}
+    {{/each}}
+  </ul>
+
+  <h2>Burgers Eaten</h2>
+
+  <ul>
+    {{#each dbResultsBurger}}
+    {{#if devoured}}
+    {{burger_name}}
+    {{/if}}
+    {{/each}}
+  </ul>
+
+  <h2>Order your burger</h2>
+  <form class="create-form">
+
+    <div class="form-group">
+      <label for="ca">BUrger:</label>
+      <input type="text" class="form-control" id="burger" name="burger">
+    </div>
+
+    <button type="submit">Add Veggie</button>
+  </form>
 
 </div>
