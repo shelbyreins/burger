@@ -7,7 +7,7 @@ var bodyParser = require("body-parser");
 var app = express();
 
 //Set up port 
-var PORT = procoess.env.PORT || 8080;
+var PORT = process.env.PORT || 8080;
 
 //body parser elements, static route files and templete engine connections
 app.use(express.static("public"));
@@ -21,8 +21,8 @@ app.set("view engine", "handlebars");
 
 
 //Routes 
-var routes = require("./controllers/catsController.js");
-app.use(routes);
+// var routes = require("./controllers/burgers_controller");
+// app.use(routes);
 
 //Port listen
 app.listen(PORT, function() {
