@@ -36,7 +36,7 @@ var orm = {
         });
     },
     insertOne: function (table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table + " (" + cols.length.toString() + ") " + "VALUES (" + printQuestionMarks(vals.length) + ") ";
+        var queryString = "INSERT INTO " + table + " (" + cols.toString() + ") " + "VALUES (" + printQuestionMarks(vals.length) + ") ";
 
         console.log(queryString);
         connection.query(queryString, vals, function (err, result) {
@@ -47,10 +47,10 @@ var orm = {
         });
     },
     updateOne: function (table, objColVals, condition, cb) {
-        var queryString = "UPDATE" + table + " SET " + objToSql(objColVals) + " WHERE " + condition;
+        var queryString = "UPDATE " + table + " SET " + objToSql(objColVals) + " WHERE " + condition;
 
-        console.log(queryString);
-        connection.query(queryString, vals, function (err, result) {
+        console.log( queryString);
+        connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
