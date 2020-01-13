@@ -6,38 +6,53 @@
     <hr class="my-4">
   </div>
 
-  <h2>Burgers Ordered</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
 
-  <ul>
-    {{#each dbResultsBurger}}
-    {{#unless devoured}}
-    <li>
-      {{burger_name}} <button class="devour" data-devour ="{{true}}">Devoured</button>
-    </li>
 
-    {{/unless}}
-    {{/each}}
-  </ul>
 
-  <h2>Burgers Eaten</h2>
+      <h2>Burgers Ordered</h2>
 
-  <ul>
-    {{#each dbResultsBurger}}
-    {{#if devoured}}
-    {{burger_name}}
-    {{/if}}
-    {{/each}}
-  </ul>
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        <li>
+          {{this.id}}-{{this.burger_name}}
+          <br>
+          <button type="button" class="devour btn btn-dark" data-id="{{this.id}}"
+            data-devour="{{devour}}">Devour</button>
+        </li>
+        <br>
 
-  <h2>Order your burger</h2>
-  <form class="create-form">
-
-    <div class="form-group">
-      <label for="ca">BUrger:</label>
-      <input type="text" class="form-control" id="burger" name="burger">
+        {{/unless}}
+        {{/each}}
+      </ul>
     </div>
+    <div class="col-md-6">
+      <h2>Burgers Eaten</h2>
 
-    <button type="submit">Add Veggie</button>
-  </form>
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        {{this.id}}- {{this.burger_name}}
+        <br>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  </div>
+  <h2>Order your burger</h2>
+
+
+  <div class="form-group">
+    <label for="ca">Burger:</label>
+    <input type="text" class="form-control" id="burger" name="burger">
+  </div>
+
+
+  <button type="button" id="addBtn">Add Burger</button>
+
 
 </div>
