@@ -6,64 +6,71 @@
     <hr class="my-4">
   </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
+  <div class="contaier">
+    <center>
+      <h2>Order your burger</h2>
+    </center>
+
+    <form class="form-inline my-2 my-lg-0 " id="search">
+      <input type="text" class="form-control mr-sm-2" id="burger" name="burger">
 
 
-<center>
-      <h2>Burgers Ordered</h2>
-</center>
-      
+      <button type="button" class="btn btn-dark" id="addBtn">Add Burger</button>
+
+    </form>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+
+
+        <center>
+          <h2><u>Burgers Ordered</u></h2>
+        </center>
+        <br>
         <ul>
           <center>
-        {{#each burgers}}
-        {{#unless devoured}}
-      
-          {{this.id}}-{{this.burger_name}}
-          <br>
-          <button type="button" class="devour btn btn-dark" data-id="{{this.id}}"
-            data-devour="{{devour}}">Devour</button>
-        
-        <br>
+            {{#each burgers}}
+            {{#unless devoured}}
 
-        {{/unless}}
-        {{/each}}
+            <strong>{{this.id}}-{{this.burger_name}}</strong>
+
+            <button type="button" class="devour btn btn-dark" data-id="{{this.id}}"
+              data-devour="{{devour}}">Devour</button>
+
+
+            <hr>
+
+            {{/unless}}
+            {{/each}}
+
+          </center>
+        </ul>
+
+      </div>
+      <br>
+
+      <div class="col-md-6">
+        <center>
+          <h2><u>Burgers Eaten</u></h2>
         </center>
-      </ul>
-      
-    </div>
-    <div class="col-md-6">
-      <center>
-      <h2>Burgers Eaten</h2>
-      </center>
-
-     
-      <ul>
-         <center>
-        {{#each burgers}}
-        {{#if devoured}}
-        {{this.id}}- {{this.burger_name}}
         <br>
-        {{/if}}
-        {{/each}}
-         </center>
-      </ul>
-      </center>
+
+
+        <ul>
+          <center>
+            {{#each burgers}}
+            {{#if devoured}}
+            <strong>{{this.id}}- {{this.burger_name}}</strong>
+
+            {{/if}}
+            {{/each}}
+          </center>
+        </ul>
+        </center>
+      </div>
     </div>
   </div>
-  </div>
-  <center>
-  <h2>Order your burger</h2>
-</center>
-
-  <div class="form-group">
-    <label for="ca"></label>
-    <input type="text" class="form-control" id="burger" name="burger">
-  </div>
-
-
-  <button type="button" class="btn btn-dark" id="addBtn">Add Burger</button>
 
 
 </div>
