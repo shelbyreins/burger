@@ -1,6 +1,7 @@
 
 $(function () {
-    $(".devour").on("click", function(){
+    $(".devour").on("click", function(event){
+        event.preventDefault();
         var id = $(this).data("id");
     var newDevoured = {
         devoured: 1
