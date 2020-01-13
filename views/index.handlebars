@@ -11,48 +11,59 @@
     <div class="col-md-6">
 
 
-
+<center>
       <h2>Burgers Ordered</h2>
-
-      <ul>
+</center>
+      
+        <ul>
+          <center>
         {{#each burgers}}
         {{#unless devoured}}
-        <li>
+      
           {{this.id}}-{{this.burger_name}}
           <br>
           <button type="button" class="devour btn btn-dark" data-id="{{this.id}}"
             data-devour="{{devour}}">Devour</button>
-        </li>
+        
         <br>
 
         {{/unless}}
         {{/each}}
+        </center>
       </ul>
+      
     </div>
     <div class="col-md-6">
+      <center>
       <h2>Burgers Eaten</h2>
+      </center>
 
+     
       <ul>
+         <center>
         {{#each burgers}}
         {{#if devoured}}
         {{this.id}}- {{this.burger_name}}
         <br>
         {{/if}}
         {{/each}}
+         </center>
       </ul>
+      </center>
     </div>
   </div>
   </div>
+  <center>
   <h2>Order your burger</h2>
-
+</center>
 
   <div class="form-group">
-    <label for="ca">Burger:</label>
+    <label for="ca"></label>
     <input type="text" class="form-control" id="burger" name="burger">
   </div>
 
 
-  <button type="button" id="addBtn">Add Burger</button>
+  <button type="button" class="btn btn-dark" id="addBtn">Add Burger</button>
 
 
 </div>
